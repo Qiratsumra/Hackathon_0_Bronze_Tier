@@ -2,7 +2,7 @@
 
 from pathlib import Path
 from typing import Optional
-
+import os
 from pydantic_settings import BaseSettings # type: ignore
 
 
@@ -10,7 +10,7 @@ class Settings(BaseSettings):
     """Application configuration from .env"""
 
     # Gemini API
-    gemini_api_key: str = "AIzaSyCHMs7jCo2ESkSuqO6Cp_Q25gjoDJrYcMM"
+    gemini_api_key: str = os.getenv("GEMINI_API_KEY")
 
     # Gmail Configuration
     gmail_credentials_json: str = "./credentials.json"
